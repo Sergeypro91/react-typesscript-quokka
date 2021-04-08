@@ -1,0 +1,31 @@
+/* Colors */
+$black: #000000;
+
+/* Colors Theme */
+$themes: (
+    light: (
+        black: $black,
+    ),
+    dark: (
+        black: invert($black),
+    )
+);
+
+/* Font */
+$fz-sm: 12px;
+$fz-md: 14px;
+$fz-lg: 16px;
+
+/* Module size */
+$module: 7px;
+
+/* Margin per module */
+$indent-sm: $module;
+$indent-md: calc(#{$module} * 2);
+$indent-lg: calc(#{$module} * 3);
+
+/* Border */
+$border-rad_10: 10px;
+
+/* Transition */
+$transition: all 0.25s cubic-bezier(0.02, 0.01, 0.47, 1);
