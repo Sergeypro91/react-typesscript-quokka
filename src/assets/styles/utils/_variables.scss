@@ -1,13 +1,19 @@
 /* Colors */
 $black: #000000;
+$white: #ffffff;
+$fontMain_darck: #303030;
 
 /* Colors Theme */
 $themes: (
     light: (
         black: $black,
+        white: $white,
+        fontMain_darck: $fontMain_darck,
     ),
     dark: (
         black: invert($black),
+        white: invert($white),
+        fontMain_darck: invert($fontMain_darck),
     )
 );
 

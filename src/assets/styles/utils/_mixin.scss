@@ -25,7 +25,7 @@
     line-height: 12px;
     @each $theme, $map in $themes {
         .#{$theme} & {
-            color: map-get($map, brandPantonText);
+            color: map-get($map, fontMain_darck);
         }
     }
 }
@@ -36,7 +36,7 @@
     line-height: 14px;
     @each $theme, $map in $themes {
         .#{$theme} & {
-            color: map-get($map, brandPantonText);
+            color: map-get($map, fontMain_darck);
         }
     }
 }
@@ -47,7 +47,7 @@
     line-height: 16px;
     @each $theme, $map in $themes {
         .#{$theme} & {
-            color: map-get($map, brandPantonText);
+            color: map-get($map, fontMain_darck);
         }
     }
 }

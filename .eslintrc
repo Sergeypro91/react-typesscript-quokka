@@ -4,7 +4,7 @@
     "parserOptions": {
         "project": "./tsconfig.json"
     },
-    "plugins": ["@typescript-eslint", "react-hooks"],
+    "plugins": ["@typescript-eslint", "prettier", "react-hooks"],
     "extends": [
         "plugin:prettier/recommended",
         "airbnb-typescript",
@@ -31,7 +31,7 @@
         // Object
         "react/destructuring-assignment": "off",
         // console
-        "no-console": "error",
+        "no-console": "off",
         // default export
         "import/prefer-default-export": "off",
         // ++
@@ -39,7 +39,8 @@
         // param reassign
         "no-param-reassign": "off",
         // eslint rules
-        "no-restricted-globals": "off"
+        "no-restricted-globals": "off",
+        "no-trailing-spaces": "error"
     },
     "settings": {
         "import/resolver": {

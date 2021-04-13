@@ -6,5 +6,5 @@
     },
     "eslint.alwaysShowStatus": true,
     "javascript.preferences.importModuleSpecifier": "non-relative",
-    "files.eol": "\r\n"
+    "files.eol": "\n"
 }
