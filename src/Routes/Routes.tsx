@@ -27,7 +27,7 @@ const RoutesInner = () => {
                 <WelcomeScreen />
             </Route>
 
-            <Route path="*">
+            <Route>
                 <Page404 />
             </Route>
         </Router>

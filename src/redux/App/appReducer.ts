@@ -1,7 +1,9 @@
-import { AppState, AppActions, PLUS_ONE } from './appTypes';
+// Types
+import { AppState, AppActions, types } from './appTypes';
 
-const initialState = {
+const initialState: AppState = {
     counter: 0,
+    posts: [],
 };
 
 export const appReducer = (
@@ -9,10 +11,16 @@ export const appReducer = (
     action: AppActions,
 ): AppState => {
     switch (action.type) {
-        case PLUS_ONE:
+        case types.PLUS_ONE:
             return {
                 ...state,
                 counter: state.counter + 1,
+            };
+
+        case types.FILL_POST_ASYNC:
+            return {
+                ...state,
+                posts: action.payload,
             };
 
         default:

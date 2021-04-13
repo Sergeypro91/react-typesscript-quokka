@@ -5,8 +5,10 @@
 }
 
 .app-logo {
-  height: 40vmin;
   pointer-events: none;
+  svg {
+    height: 40vmin;
+  }
 }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -28,6 +30,17 @@
 
 .app-link {
   color: #61dafb;
+}
+
+.fetch-btn {
+  &__wrapper {
+    display: flex;
+    align-items: center;
+    
+    & > *:nth-child(n):not(:only-child):not(:last-child) {
+      margin-right: $indent-md;
+    }
+  }  
 }
 
 @keyframes app-logo-spin {

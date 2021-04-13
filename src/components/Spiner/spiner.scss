@@ -1,0 +1,21 @@
+@import '~assets/styles/utils/mixin';
+
+.spiner {
+    width: 30px;
+    height: 30px;
+    animation: spiner infinite 1s linear;
+
+    svg {
+        width: 100%;
+    }
+}
+
+@keyframes spiner {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}

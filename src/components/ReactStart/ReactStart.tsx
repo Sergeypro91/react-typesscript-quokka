@@ -6,10 +6,13 @@ import { State } from 'redux/store';
 import { useDispatch, useSelector, shallowEqual } from 'react-redux';
 
 // Actions
-import { plusOne } from 'redux/App/appActions';
+import { appCombineActions } from 'redux/App/appActions';
 
 // Assets
-import logo from 'assets/images/svg/logo.svg';
+import { Logo } from 'assets/images/svgr/logo';
+
+// Components
+import { Spiner } from 'components/Spiner/Spiner';
 
 // Style
 import './ReactStart.scss';
@@ -17,14 +20,25 @@ import './ReactStart.scss';
 const ReactStartInner = () => {
     const dispatch = useDispatch();
     const { counter } = useSelector((state: State) => state.app, shallowEqual);
+    const { isFetching } = useSelector(
+        (state: State) => state.ui,
+        shallowEqual,
+    );
 
     const counterIncrement = () => {
-        dispatch(plusOne());
+        dispatch(appCombineActions.plusOne());
     };
+
+    const fetchPosts = () => {
+        dispatch(appCombineActions.fetchPostAsync());
+    };
+
     return (
         <div className="app">
             <header className="app-header">
-                <img src={logo} className="app-logo" alt="logo" />
+                <div className="app-logo">
+                    <Logo />
+                </div>
 
                 <p>
                     Edit <code>src/App.tsx</code> and save to reload.
@@ -40,6 +54,17 @@ const ReactStartInner = () => {
 
                 <button type="button" onClick={counterIncrement}>
                     Plus, {counter}
+                </button>
+
+                <button
+                    type="button"
+                    className="fetch-btn"
+                    onClick={fetchPosts}>
+                    <span className="fetch-btn__wrapper">
+                        <span>Get posts</span>
+
+                        <Spiner isFetching={isFetching} />
+                    </span>
                 </button>
             </header>
         </div>

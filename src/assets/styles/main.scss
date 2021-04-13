@@ -1,3 +1,11 @@
 @import 'utils/mixin';
 @import 'utils/reset';
 @import 'fonts';
+
+svg {
+    @each $theme, $map in $themes {
+        .#{$theme} & {
+            fill: map-get($map, fontMain_darck);
+        }
+    }
+}
