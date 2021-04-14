@@ -13,8 +13,11 @@ export interface Post {
 export type Posts = Array<Post>;
 
 export const types = {
+    // Sync
     PLUS_ONE: 'PLUS_ONE',
-    FILL_POST_ASYNC: 'FILL_POST_ASYNC',
+    FILL_POST: 'FILL_POST',
+
+    // Async
     FETCH_POST_ASYNC: 'FETCH_POST_ASYNC',
 };
 
@@ -24,7 +27,7 @@ interface AppCounter {
 }
 
 interface AppFillPost {
-    type: typeof types.FILL_POST_ASYNC;
+    type: typeof types.FILL_POST;
     payload: Posts;
 }
 

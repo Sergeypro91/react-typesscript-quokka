@@ -17,7 +17,7 @@ export const appReducer = (
                 counter: state.counter + 1,
             };
 
-        case types.FILL_POST_ASYNC:
+        case types.FILL_POST:
             return {
                 ...state,
                 posts: action.payload,

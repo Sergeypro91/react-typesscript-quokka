@@ -3,7 +3,10 @@ export interface State {
 }
 
 export const types = {
+    // Sync
     TYPE: 'TYPE',
+
+    // Async
 };
 
 interface Type {

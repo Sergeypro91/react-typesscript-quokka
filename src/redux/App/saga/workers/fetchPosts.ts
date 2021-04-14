@@ -11,6 +11,7 @@ import { uiActions } from 'redux/ui/actions';
 export function* fetchPosts() {
     try {
         yield put(uiActions.startFetching());
+
         // @ts-ignore
         const response = yield apply(api, api.posts.fetch);
         // @ts-ignore
@@ -22,7 +23,7 @@ export function* fetchPosts() {
 
         yield put(appCombineActions.fillPosts(post));
     } catch (error) {
-        console.log('   error', error);
+        yield put(uiActions.emitError(error, 'fetchPosts worker'));
     } finally {
         yield put(uiActions.stopFetching());
     }
