@@ -9,9 +9,11 @@ import { plusCounter, fetchPosts } from './workers';
 
 function* watchPlusCounter() {
     yield takeEvery(types.PLUS_ONE, plusCounter);
+}
+function* watchFetchPosts() {
     yield takeEvery(types.FETCH_POST_ASYNC, fetchPosts);
 }
 
 export function* watcheCounter() {
-    yield all([call(watchPlusCounter)]);
+    yield all([call(watchPlusCounter), call(watchFetchPosts)]);
 }

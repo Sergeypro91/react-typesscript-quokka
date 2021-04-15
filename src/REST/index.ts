@@ -1,2 +1,2 @@
 export { api } from './api';
-export { MAIN_URL, ROOT_URL } from './config';
+export { MAIN_URL, ROOT_URL, ROOT_WS } from './config';
