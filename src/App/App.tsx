@@ -5,13 +5,16 @@ import React, { useEffect } from 'react';
 import { Routes } from 'Routes/Routes';
 
 // Store
+import { store } from 'redux/store';
 import { useDispatch } from 'react-redux';
 
 // Actions
 import { socketCombineActions } from 'redux/socket/actions';
 
 // Socket
-import { socket } from '../index';
+import { setupSocket } from 'redux/socket';
+
+export const socket = setupSocket(store.dispatch, socketCombineActions);
 
 const App = () => {
     const dispatch = useDispatch();

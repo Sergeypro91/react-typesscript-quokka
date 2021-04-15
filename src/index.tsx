@@ -6,12 +6,6 @@ import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import { store } from 'redux/store';
 
-// Actions
-import { socketCombineActions } from 'redux/socket/actions';
-
-// Socket
-import { setupSocket } from 'redux/socket';
-
 // Components
 import App from 'App/App';
 
@@ -19,8 +13,6 @@ import App from 'App/App';
 import './index.scss';
 
 import reportWebVitals from './reportWebVitals';
-
-export const socket = setupSocket(store.dispatch, socketCombineActions);
 
 ReactDOM.render(
     <React.StrictMode>
