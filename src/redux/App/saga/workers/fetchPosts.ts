@@ -15,13 +15,15 @@ export function* fetchPosts() {
         // @ts-ignore
         const response = yield apply(api, api.posts.fetch);
         // @ts-ignore
-        const { data: post, message } = yield apply(response, response.json);
+        const { data: posts, message } = yield apply(response, response.json);
+
+        console.log(response);
 
         if (response.status !== 200) {
             throw new Error(message);
         }
 
-        yield put(appCombineActions.fillPosts(post));
+        yield put(appCombineActions.fillPosts(posts));
     } catch (error) {
         yield put(uiActions.emitError(error, 'fetchPosts worker'));
     } finally {

@@ -8,7 +8,6 @@ import isDev from 'utils/isDev/isDev';
 // Middleware
 import { createLogger } from 'redux-logger';
 import createSagaMidlleware from 'redux-saga';
-import { customThunk } from './custom';
 
 // Reducer
 import { rootReducer } from '../rootReducer';
@@ -40,7 +39,7 @@ const preloadedState = _.merge(
     initialState,
     localState && JSON.parse(localState),
 );
-const middleware: any[] = [sagaMidlleware, customThunk];
+const middleware: any[] = [sagaMidlleware];
 
 if (isDev()) {
     middleware.push(logger);
