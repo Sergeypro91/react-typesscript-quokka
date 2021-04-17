@@ -2,15 +2,15 @@
 import { put, apply } from 'redux-saga/effects';
 
 // API
-import { api } from 'REST';
+import { api } from 'api';
 
 // Actions
 import { appCombineActions } from 'redux/App/appActions';
-import { uiActions } from 'redux/ui/actions';
+import { uiCombineActions } from 'redux/ui/actions';
 
 export function* fetchPosts() {
     try {
-        yield put(uiActions.startFetching());
+        yield put(uiCombineActions.startFetching());
 
         // @ts-ignore
         const response = yield apply(api, api.posts.fetch);
@@ -25,8 +25,8 @@ export function* fetchPosts() {
 
         yield put(appCombineActions.fillPosts(posts));
     } catch (error) {
-        yield put(uiActions.emitError(error, 'fetchPosts worker'));
+        yield put(uiCombineActions.emitError(error, 'fetchPosts worker'));
     } finally {
-        yield put(uiActions.stopFetching());
+        yield put(uiCombineActions.stopFetching());
     }
 }

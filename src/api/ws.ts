@@ -2,36 +2,36 @@
 import { Dispatch } from 'react';
 
 // Config
-import { ROOT_WS } from 'REST';
+import { ROOT_WS } from 'api';
 
 // Types
-import { Actions } from 'redux/socket/types';
+import { UiActions } from 'redux/ui/types';
 
 // Actions
-import { socketCombineActions } from 'redux/socket/actions';
+import { uiCombineActions } from 'redux/ui/actions';
 
 export const setupSocket = (
-    dispatch: Dispatch<Actions>,
-    action: typeof socketCombineActions,
+    dispatch: Dispatch<UiActions>,
+    action: typeof uiCombineActions,
 ) => {
     const socket = new WebSocket(`${ROOT_WS}/v2/ws/validate/contractors`);
 
     socket.onopen = () => {
-        dispatch(action.socetConnect());
+        dispatch(action.socketConnect());
 
         console.log('%cWebSocket Client Connected', 'color:green');
     };
 
     socket.onmessage = (event: MessageEvent) => {
-        const timeEvent = JSON.parse(event.data);
+        const message = JSON.parse(event.data);
 
-        console.log(timeEvent);
+        dispatch(action.socketMessage(message));
     };
 
     socket.onclose = () => {
-        dispatch(action.socetDisconnect());
-
         console.log('%cWebSocket Client Disconnect', 'color: red');
+
+        dispatch(action.socketDisconnect());
 
         let timeoutForReconnect: null | number = null;
 

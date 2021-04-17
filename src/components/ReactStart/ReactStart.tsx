@@ -8,6 +8,12 @@ import { useDispatch, useSelector, shallowEqual } from 'react-redux';
 // Actions
 import { appCombineActions } from 'redux/App/appActions';
 
+// Socket
+import { socket } from 'App/App';
+
+// Actions
+import { uiCombineActions } from 'redux/ui/actions';
+
 // Assets
 import { Logo } from 'assets/images/svgr/logo';
 
@@ -20,7 +26,7 @@ import './ReactStart.scss';
 const ReactStartInner = () => {
     const dispatch = useDispatch();
     const { counter } = useSelector((state: State) => state.app, shallowEqual);
-    const { isFetching } = useSelector(
+    const { isFetching, isSocketConnected } = useSelector(
         (state: State) => state.ui,
         shallowEqual,
     );
@@ -31,6 +37,23 @@ const ReactStartInner = () => {
 
     const fetchPosts = () => {
         dispatch(appCombineActions.fetchPostAsync());
+    };
+
+    const socketSend = () => {
+        if (isSocketConnected) {
+            const test = {
+                contractor_type: 3,
+                inn: '402914238850',
+                fromId: 0,
+            };
+
+            const SocketSendObj = {
+                socket,
+                message: JSON.stringify(test),
+            };
+
+            dispatch(uiCombineActions.socketSend(SocketSendObj));
+        }
     };
 
     return (
@@ -52,19 +75,29 @@ const ReactStartInner = () => {
                     Learn React
                 </a>
 
-                <button type="button" onClick={counterIncrement}>
+                <button
+                    type="button"
+                    className="btn btn--plus"
+                    onClick={counterIncrement}>
                     Plus, {counter}
                 </button>
 
                 <button
                     type="button"
-                    className="fetch-btn"
+                    className="btn btn--fetch"
                     onClick={fetchPosts}>
                     <span className="fetch-btn__wrapper">
                         <span>Get posts</span>
 
                         <Spiner isFetching={isFetching} />
                     </span>
+                </button>
+
+                <button
+                    type="button"
+                    className="btn btn--ws"
+                    onClick={socketSend}>
+                    <span>Send message throw WebSocket</span>
                 </button>
             </header>
         </div>

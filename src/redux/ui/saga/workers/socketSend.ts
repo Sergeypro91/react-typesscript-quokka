@@ -3,19 +3,19 @@
 import { put } from 'redux-saga/effects';
 
 // Actions
-import { uiActions } from 'redux/ui/actions';
+import { uiCombineActions } from 'redux/ui/actions';
 
 // Types
-import { SocketObj } from 'redux/socket/types';
+import { SocketSendObj } from 'redux/ui/types';
 
-export function* worker({
-    payload: socketObj,
+export function* socketSend({
+    payload: socketSendObj,
 }: {
     type: string;
-    payload: SocketObj;
+    payload: SocketSendObj;
 }) {
     try {
-        socketObj.socket.send(socketObj.message);
+        socketSendObj.socket.send(socketSendObj.message);
 
         // Making a request for data
         /*
@@ -31,6 +31,6 @@ export function* worker({
         // Run action from 'redux/{domainName}/actions
         /* yield put(combineActions.{actionItSelf}); */
     } catch (error) {
-        yield put(uiActions.emitError(error, 'workerName worker'));
+        yield put(uiCombineActions.emitError(error, 'workerName worker'));
     }
 }

@@ -7,11 +7,11 @@ import { put } from 'redux-saga/effects';
 
 // Actions
 // import { combineActions } from 'redux/...';
-import { uiActions } from 'redux/ui/actions';
+import { uiCombineActions } from 'redux/ui/actions';
 
 export function* worker() {
     try {
-        yield put(uiActions.startFetching());
+        yield put(uiCombineActions.startFetching());
 
         // Making a request for data
         /*
@@ -29,8 +29,8 @@ export function* worker() {
         // Run action from 'redux/{domainName}/actions
         /* yield put(combineActions.{actionItSelf}); */
     } catch (error) {
-        yield put(uiActions.emitError(error, 'workerName worker'));
+        yield put(uiCombineActions.emitError(error, 'workerName worker'));
     } finally {
-        yield put(uiActions.stopFetching());
+        yield put(uiCombineActions.stopFetching());
     }
 }
