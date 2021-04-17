@@ -38,7 +38,7 @@
     align-items: center;
     
     & > *:nth-child(n):not(:only-child):not(:last-child) {
-      margin-right: $indent-md;
+      margin-right: $indent-m;
     }
   }  
 }

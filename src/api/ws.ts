@@ -17,9 +17,9 @@ export const setupSocket = (
     const socket = new WebSocket(`${ROOT_WS}/v2/ws/validate/contractors`);
 
     socket.onopen = () => {
-        dispatch(action.socketConnect());
-
         console.log('%cWebSocket Client Connected', 'color:green');
+
+        dispatch(action.socketConnect());
     };
 
     socket.onmessage = (event: MessageEvent) => {

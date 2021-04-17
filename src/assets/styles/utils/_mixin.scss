@@ -1,14 +1,54 @@
 @import './variables';
 
+/* Breackpoint */
 @mixin responsive($breakpoint) {
-    @if $breakpoint == notebook {
-        @media (max-width: 1366px) {
+    @if $breakpoint == mobile-s {
+        @media (max-width: 319px) {
             @content;
         }
     }
-
-    @if $breakpoint == bigDesktop {
-        @media (min-width: 1921px) {
+    @if $breakpoint == mobile-s {
+        @media (min-width: 320px) and (max-width: 374px) {
+            @content;
+        }
+    }
+    @if $breakpoint == mobile-m {
+        @media (min-width: 375px) and (max-width: 424px) {
+            @content;
+        }
+    }
+    @if $breakpoint == mobile-l {
+        @media (min-width: 425px) and (max-width: 767px) {
+            @content;
+        }
+    }
+    @if $breakpoint == tablet {
+        @media (min-width: 768px) and (max-width: 1023px) {
+            @content;
+        }
+    }
+    @if $breakpoint == desktop-s {
+        @media (min-width: 1024px) and (max-width: 1365px) {
+            @content;
+        }
+    }
+    @if $breakpoint == desktop-m {
+        @media (min-width: 1366px) and (max-width: 1599px) {
+            @content;
+        }
+    }
+    @if $breakpoint == desktop-ml {
+        @media (min-width: 1600px) and (max-width: 1919px) {
+            @content;
+        }
+    }
+    @if $breakpoint == desktop-l {
+        @media (min-width: 1920px) and (max-width: 2559px) {
+            @content;
+        }
+    }
+    @if $breakpoint == desktop-xl {
+        @media (max-width: 2560px) {
             @content;
         }
     }
@@ -19,35 +59,125 @@
         'Noto Sans', sans-serif;
 }
 
-@mixin _p--sm {
+/* Headline */
+@mixin _h--1 {
     @include _font-family;
-    font-size: 12px;
-    line-height: 12px;
+    font-size: $headline-1;
+    line-height: calc(#{$headline-1} * 1.375);
     @each $theme, $map in $themes {
         .#{$theme} & {
-            color: map-get($map, fontMain_darck);
+            color: map-get($map, fontMain);
         }
     }
 }
 
-@mixin _p--md {
+@mixin _h--2 {
     @include _font-family;
-    font-size: 14px;
-    line-height: 14px;
+    font-size: $headline-2;
+    line-height: calc(#{$headline-2} * 1.375);
     @each $theme, $map in $themes {
         .#{$theme} & {
-            color: map-get($map, fontMain_darck);
+            color: map-get($map, fontMain);
         }
     }
 }
 
-@mixin _p--lg {
+@mixin _h--3 {
     @include _font-family;
-    font-size: 16px;
-    line-height: 16px;
+    font-size: $headline-3;
+    line-height: calc(#{$headline-3} * 1.375);
     @each $theme, $map in $themes {
         .#{$theme} & {
-            color: map-get($map, fontMain_darck);
+            color: map-get($map, fontMain);
+        }
+    }
+}
+
+@mixin _h--4 {
+    @include _font-family;
+    font-size: $headline-4;
+    line-height: calc(#{$headline-4} * 1.375);
+    @each $theme, $map in $themes {
+        .#{$theme} & {
+            color: map-get($map, fontMain);
+        }
+    }
+}
+
+@mixin _h--5 {
+    @include _font-family;
+    font-size: $headline-5;
+    line-height: calc(#{$headline-5} * 1.375);
+    @each $theme, $map in $themes {
+        .#{$theme} & {
+            color: map-get($map, fontMain);
+        }
+    }
+}
+
+@mixin _h--6 {
+    @include _font-family;
+    font-size: $headline-6;
+    line-height: calc(#{$headline-6} * 1.375);
+    @each $theme, $map in $themes {
+        .#{$theme} & {
+            color: map-get($map, fontMain);
+        }
+    }
+}
+
+@mixin _h--7 {
+    @include _font-family;
+    font-size: $headline-7;
+    line-height: calc(#{$headline-7} * 1.375);
+    @each $theme, $map in $themes {
+        .#{$theme} & {
+            color: map-get($map, fontMain);
+        }
+    }
+}
+
+/* Text */
+@mixin _text--xs {
+    @include _font-family;
+    font-size: $text-xs;
+    line-height: calc(#{$text-xs} * 1.375);
+    @each $theme, $map in $themes {
+        .#{$theme} & {
+            color: map-get($map, fontMain);
+        }
+    }
+}
+
+@mixin _text--s {
+    @include _font-family;
+    font-size: $text-s;
+    line-height: calc(#{$text-s} * 1.375);
+    @each $theme, $map in $themes {
+        .#{$theme} & {
+            color: map-get($map, fontMain);
+        }
+    }
+}
+
+@mixin _text--m {
+    @include _font-family;
+    font-size: $text-m;
+    line-height: calc(#{$text-m} * 1.375);
+    @each $theme, $map in $themes {
+        .#{$theme} & {
+            color: map-get($map, fontMain);
+        }
+    }
+}
+
+@mixin _text--l {
+    @include _font-family;
+    font-size: $text-l;
+    line-height: calc(#{$text-l} * 1.375);
+    @each $theme, $map in $themes {
+        .#{$theme} & {
+            color: map-get($map, fontMain);
         }
     }
 }

@@ -1,37 +1,62 @@
 /* Colors */
-$black: #000000;
-$white: #ffffff;
-$fontMain_darck: #303030;
+$black:             #072D57;
+$white:             #FFFFFF;
+$main_edo:          #6746EB;
+$main_edo--light:   #F0EDFD;
+$main_edo--darck:   #4E30C7;
+$fontMain:          #303030;
+$success:           #00B54E;
+$warning:           #F98700;
+$error:             #F24646;
+
 
 /* Colors Theme */
 $themes: (
     light: (
-        black: $black,
-        white: $white,
-        fontMain_darck: $fontMain_darck,
+        black:          $black,
+        white:          $white,
+        main_edo:       #4E30C7,
+        fontMain:       $fontMain,
     ),
     dark: (
-        black: invert($black),
-        white: invert($white),
-        fontMain_darck: invert($fontMain_darck),
+        black:          $white,
+        white:          $black,
+        main_edo:       #4E30C7,
+        fontMain:       invert($fontMain),
     )
 );
 
 /* Font */
-$fz-sm: 12px;
-$fz-md: 14px;
-$fz-lg: 16px;
+/* headline */
+$headline-1:    58px;
+$headline-2:    42px;
+$headline-3:    36px;
+$headline-4:    24px;
+$headline-5:    18px;
+$headline-6:    14px;
+$headline-7:    12px;
+
+/* text */
+$text-xs:   10px;
+$text-s:    12px;
+$text-m:    14px;
+$text-l:    18px;
 
 /* Module size */
-$module: 7px;
+$module: 4px;
 
-/* Margin per module */
-$indent-sm: $module;
-$indent-md: calc(#{$module} * 2);
-$indent-lg: calc(#{$module} * 3);
+/* Indentation */
+$indent-xs: $module;
+$indent-s:  calc(#{$module} * 2);
+$indent-xm: calc(#{$module} * 3);
+$indent-m:  calc(#{$module} * 4);
+$indent-xl: calc(#{$module} * 6);
+$indent-l:  calc(#{$module} * 8);
 
 /* Border */
-$border-rad_10: 10px;
+$border-s: $module;
+$border-m: calc(#{$module} * 2);
+$border-l: calc(#{$module} * 2);
 
 /* Transition */
 $transition: all 0.25s cubic-bezier(0.02, 0.01, 0.47, 1);

@@ -10,25 +10,25 @@ export const uiCombineActions = {
         type: uiTypes.STOP_FETCHING,
     }),
     socketConnect: (): UiActions => ({
-        type: uiTypes.SOCKET_CONNECT_ACYNC,
+        type: uiTypes.SOCKET_CONNECT,
     }),
     socketDisconnect: (): UiActions => ({
-        type: uiTypes.SOCKET_DISCONNECT_ACYNC,
+        type: uiTypes.SOCKET_DISCONNECT,
     }),
     socketSend: (socketSendObj: SocketSendObj): UiActions => ({
         type: uiTypes.SOCKET_SEND,
         payload: socketSendObj,
-    }),
-
-    // Async
-    socketMessage: (message: any): UiActions => ({
-        type: uiTypes.SOCKET_MESSAGE_ACYNC,
-        payload: message,
     }),
     emitError: (error: string, meta: null | string = null): UiActions => ({
         type: uiTypes.EMIT_ERROR,
         payload: error,
         error: true,
         meta,
+    }),
+
+    // Async
+    socketMessage: (message: any): UiActions => ({
+        type: uiTypes.SOCKET_MESSAGE_ACYNC,
+        payload: message,
     }),
 };

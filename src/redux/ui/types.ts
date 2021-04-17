@@ -13,13 +13,13 @@ export const uiTypes = {
     // Sync
     START_FETCHING: 'START_FETCHING',
     STOP_FETCHING: 'STOP_FETCHING',
-    SOCKET_CONNECT_ACYNC: 'SOCKET_CONNECT_ACYNC',
-    SOCKET_DISCONNECT_ACYNC: 'SOCKET_DISCONNECT_ACYNC',
+    SOCKET_CONNECT: 'SOCKET_CONNECT',
+    SOCKET_DISCONNECT: 'SOCKET_DISCONNECT',
     SOCKET_SEND: 'SOCKET_SEND',
+    EMIT_ERROR: 'EMIT_ERROR',
 
     // Async
     SOCKET_MESSAGE_ACYNC: 'SOCKET_MESSAGE_ACYNC',
-    EMIT_ERROR: 'EMIT_ERROR',
 };
 
 interface StartFetchingType {
@@ -33,23 +33,18 @@ interface StopFetchingType {
 }
 
 interface SocketConnectType {
-    type: typeof uiTypes.SOCKET_CONNECT_ACYNC;
+    type: typeof uiTypes.SOCKET_CONNECT;
     payload?: any;
 }
 
 interface SocketDisconnectType {
-    type: typeof uiTypes.SOCKET_DISCONNECT_ACYNC;
+    type: typeof uiTypes.SOCKET_DISCONNECT;
     payload?: any;
 }
 
 interface SocketSendType {
     type: typeof uiTypes.SOCKET_SEND;
     payload: SocketSendObj;
-}
-
-interface SocketMessageType {
-    type: typeof uiTypes.SOCKET_MESSAGE_ACYNC;
-    payload: any;
 }
 
 interface ImitErrorType {
@@ -59,11 +54,16 @@ interface ImitErrorType {
     meta: null | string;
 }
 
+interface SocketMessageType {
+    type: typeof uiTypes.SOCKET_MESSAGE_ACYNC;
+    payload: any;
+}
+
 export type UiActions =
     | StartFetchingType
     | StopFetchingType
     | SocketConnectType
     | SocketDisconnectType
     | SocketSendType
-    | SocketMessageType
-    | ImitErrorType;
+    | ImitErrorType
+    | SocketMessageType;
