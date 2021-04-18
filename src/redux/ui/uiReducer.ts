@@ -2,7 +2,7 @@
 import { produce } from 'immer';
 
 // Types
-import { UiState, UiActions, uiTypes } from './types';
+import { UiState, UiActions, uiTypes } from './uiTypes';
 
 const initialState: UiState = {
     isFetching: false,

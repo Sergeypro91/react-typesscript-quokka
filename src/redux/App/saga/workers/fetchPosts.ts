@@ -6,7 +6,7 @@ import { api } from 'api';
 
 // Actions
 import { appCombineActions } from 'redux/App/appActions';
-import { uiCombineActions } from 'redux/ui/actions';
+import { uiCombineActions } from 'redux/ui/uiActions';
 
 export function* fetchPosts() {
     try {

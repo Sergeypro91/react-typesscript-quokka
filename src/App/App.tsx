@@ -9,7 +9,7 @@ import { store } from 'redux/store';
 import { useDispatch } from 'react-redux';
 
 // Actions
-import { uiCombineActions } from 'redux/ui/actions';
+import { uiCombineActions } from 'redux/ui/uiActions';
 
 // Socket
 import { setupSocket } from 'api';

@@ -5,10 +5,10 @@ import { Dispatch } from 'react';
 import { ROOT_WS } from 'api';
 
 // Types
-import { UiActions } from 'redux/ui/types';
+import { UiActions } from 'redux/ui/uiTypes';
 
 // Actions
-import { uiCombineActions } from 'redux/ui/actions';
+import { uiCombineActions } from 'redux/ui/uiActions';
 
 export const setupSocket = (
     dispatch: Dispatch<UiActions>,

@@ -1,4 +1,4 @@
-import { SocketSendObj } from 'redux/ui/types';
+import { SocketSendObj } from 'redux/ui/uiTypes';
 
 type OwnPropsType = {};
 

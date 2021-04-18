@@ -2,10 +2,10 @@
 import { put } from 'redux-saga/effects';
 
 // Actions
-import { uiCombineActions } from 'redux/ui/actions';
+import { uiCombineActions } from 'redux/ui/uiActions';
 
 // Types
-import { SocketSendObj } from 'redux/ui/types';
+import { SocketSendObj } from 'redux/ui/uiTypes';
 
 export function* socketSend({
     payload: socketSendObj,

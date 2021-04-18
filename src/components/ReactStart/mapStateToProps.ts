@@ -2,11 +2,8 @@
 import { State } from 'redux/store';
 
 // Selectors
-import {
-    getCounter,
-    getIsFetching,
-    getIsSocketConnected,
-} from 'redux/App/appSelectors';
+import { getCounter } from 'redux/App/appSelectors';
+import { getIsFetching, getIsSocketConnected } from 'redux/ui/uiSelectors';
 
 // Types
 import { MapStateToPropsType } from './reactStartTypes';

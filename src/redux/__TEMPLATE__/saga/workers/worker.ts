@@ -7,7 +7,7 @@ import { put } from 'redux-saga/effects';
 
 // Actions
 // import { combineActions } from 'redux/...';
-import { uiCombineActions } from 'redux/ui/actions';
+import { uiCombineActions } from 'redux/ui/uiActions';
 
 export function* worker() {
     try {

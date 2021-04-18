@@ -2,7 +2,7 @@
 import { takeEvery, all, call } from 'redux-saga/effects';
 
 // Types
-import { uiTypes } from '../types';
+import { uiTypes } from '../uiTypes';
 
 // Workers
 import { socketSend } from './workers';

@@ -1,5 +1,5 @@
 // Types
-import { uiTypes, UiActions, SocketSendObj } from './types';
+import { uiTypes, UiActions, SocketSendObj } from './uiTypes';
 
 export const uiCombineActions = {
     // Sync
