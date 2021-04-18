@@ -17,8 +17,6 @@ export function* fetchPosts() {
         // @ts-ignore
         const { data: posts, message } = yield apply(response, response.json);
 
-        console.log(response);
-
         if (response.status !== 200) {
             throw new Error(message);
         }

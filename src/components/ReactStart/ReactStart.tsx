@@ -1,18 +1,8 @@
 // Core
 import React, { memo } from 'react';
 
-// Store
-import { State } from 'redux/store';
-import { useDispatch, useSelector, shallowEqual } from 'react-redux';
-
-// Actions
-import { appCombineActions } from 'redux/App/appActions';
-
 // Socket
 import { socket } from 'App/App';
-
-// Actions
-import { uiCombineActions } from 'redux/ui/actions';
 
 // Assets
 import { Logo } from 'assets/images/svgr/logo';
@@ -20,26 +10,28 @@ import { Logo } from 'assets/images/svgr/logo';
 // Components
 import { Spiner } from 'components/Spiner/Spiner';
 
+// Store
+import { connect } from 'react-redux';
+
+// Types
+import { ReactStartTypes } from './reactStartTypes';
+
+// MapToProps
+import { mapStateToProps } from './mapStateToProps';
+import { mapDispatchToProps } from './mapDispatchToProps';
+
 // Style
 import './ReactStart.scss';
 
-const ReactStartInner = () => {
-    const dispatch = useDispatch();
-    const { counter } = useSelector((state: State) => state.app, shallowEqual);
-    const { isFetching, isSocketConnected } = useSelector(
-        (state: State) => state.ui,
-        shallowEqual,
-    );
-
-    const counterIncrement = () => {
-        dispatch(appCombineActions.plusOne());
-    };
-
-    const fetchPosts = () => {
-        dispatch(appCombineActions.fetchPostAsync());
-    };
-
-    const socketSend = () => {
+const ReactStartInner: React.FC<ReactStartTypes> = ({
+    counter,
+    isFetching,
+    isSocketConnected,
+    plusOne,
+    fetchPostAsync,
+    socketSend,
+}) => {
+    const sendMessage = () => {
         if (isSocketConnected) {
             const test = {
                 contractor_type: 3,
@@ -47,12 +39,12 @@ const ReactStartInner = () => {
                 fromId: 0,
             };
 
-            const SocketSendObj = {
+            const socketSendObj = {
                 socket,
                 message: JSON.stringify(test),
             };
 
-            dispatch(uiCombineActions.socketSend(SocketSendObj));
+            socketSend(socketSendObj);
         }
     };
 
@@ -78,14 +70,14 @@ const ReactStartInner = () => {
                 <button
                     type="button"
                     className="btn btn--plus"
-                    onClick={counterIncrement}>
+                    onClick={plusOne}>
                     Plus, {counter}
                 </button>
 
                 <button
                     type="button"
                     className="btn btn--fetch"
-                    onClick={fetchPosts}>
+                    onClick={fetchPostAsync}>
                     <span className="fetch-btn__wrapper">
                         <span>Get posts</span>
 
@@ -96,7 +88,7 @@ const ReactStartInner = () => {
                 <button
                     type="button"
                     className="btn btn--ws"
-                    onClick={socketSend}>
+                    onClick={sendMessage}>
                     <span>Send message throw WebSocket</span>
                 </button>
             </header>
@@ -104,4 +96,7 @@ const ReactStartInner = () => {
     );
 };
 
-export const ReactStart = memo(ReactStartInner);
+export default connect(
+    mapStateToProps,
+    mapDispatchToProps,
+)(memo(ReactStartInner));

@@ -1,9 +1,7 @@
 // Core
-import React, { memo } from 'react';
+import React from 'react';
 
 // Components
-import { ReactStart } from 'components/ReactStart/ReactStart';
+import ReactStart from 'components/ReactStart/ReactStart';
 
-const WelcomeScreenInner = () => <ReactStart />;
-
-export const WelcomeScreen = memo(WelcomeScreenInner);
+export const WelcomeScreen = () => <ReactStart />;

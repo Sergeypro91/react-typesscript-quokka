@@ -1,3 +1,6 @@
+// Immer
+import { produce } from 'immer';
+
 // Types
 import { AppState, AppActions, types } from './appTypes';
 
@@ -12,16 +15,14 @@ export const appReducer = (
 ): AppState => {
     switch (action.type) {
         case types.PLUS_ONE:
-            return {
-                ...state,
-                counter: state.counter + 1,
-            };
+            return produce(state, (draftState) => {
+                draftState.counter += 1;
+            });
 
         case types.FILL_POST:
-            return {
-                ...state,
-                posts: action.payload,
-            };
+            return produce(state, (draftState) => {
+                draftState.posts = action.payload;
+            });
 
         default:
             return state;

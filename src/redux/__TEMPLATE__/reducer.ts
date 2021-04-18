@@ -1,3 +1,6 @@
+// Immer
+import { produce } from 'immer';
+
 // Types
 import { State, Actions, types } from './types';
 
@@ -8,7 +11,9 @@ const initialState: State = {
 export const reducer = (state = initialState, action: Actions) => {
     switch (action.type) {
         case types.TYPE:
-            return state;
+            return produce(state, (draftState) => {
+                draftState.type = 0;
+            });
 
         default:
             return state;

@@ -1,14 +1,26 @@
 // Core
-import React from 'react';
+import React, { memo } from 'react';
+
+// Store
+import { connect } from 'react-redux';
 
 // Assets
 
 // Types
 import { TemplateComponentTypes } from './templateComponentTypes';
 
+// MapToProps
+import { mapStateToProps } from './mapStateToProps';
+import { mapDispatchToProps } from './mapDispatchToProps';
+
 // Style
 import './TemplateComponent.scss';
 
-export const TemplateComponent = (props: TemplateComponentTypes) => (
-    <div className="template-component">Template component {props.key}</div>
+const TemplateComponentInner: React.FC<TemplateComponentTypes> = ({ key }) => (
+    <div className="template-component">Template component {key}</div>
 );
+
+export default connect(
+    mapStateToProps,
+    mapDispatchToProps,
+)(memo(TemplateComponentInner));

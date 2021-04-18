@@ -26,6 +26,7 @@ export const setupSocket = (
         const message = JSON.parse(event.data);
 
         dispatch(action.socketMessage(message));
+        dispatch(action.stopFetching());
     };
 
     socket.onclose = () => {
